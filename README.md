@@ -1,58 +1,60 @@
-# Hardhat TypeScript plugin boilerplate
+# Deals - Token Transferring Magic 🎩✨
 
-This is a sample Hardhat plugin written in TypeScript. Creating a Hardhat plugin
-can be as easy as extracting a part of your config into a different file and
-publishing it to npm.
+Welcome to Deals, a magical adventure where token transferring becomes easy and fun! This project uses Hardhat to perform token transfers between Ethereum addresses.
 
-This sample project contains an example on how to do that, but also comes with
-many more features:
+## Getting Started
 
-- A mocha test suite ready to use
-- TravisCI already setup
-- A package.json with scripts and publishing info
-- Examples on how to do different things
+### Prerequisites
 
-## Installation
+- Node.js v14 or higher
+- npm v6 or higher
 
-To start working on your project, just run
+### Installation
 
-```bash
-npm install
+To install Deals as an npm package, simply run:
+```
+npm install hardhat-token-dealer
 ```
 
-## Plugin development
+## Running a Hardhat Node
 
-Make sure to read our [Plugin Development Guide](https://hardhat.org/advanced/building-plugins.html) to learn how to build a plugin.
+Deals requires a Hardhat node to function:
 
-## Testing
+1. Install Hardhat globally:
+```
+npm install -g hardhat
+```
 
-Running `npm run test` will run every test located in the `test/` folder. They
-use [mocha](https://mochajs.org) and [chai](https://www.chaijs.com/),
-but you can customize them.
+2. Run the Hardhat node:
+```
+npx hardhat node --verbose &
+```
 
-We recommend creating unit tests for your own modules, and integration tests for
-the interaction of the plugin with Hardhat and its dependencies.
+🚨 **Warning:** This project uses "public" private keys provided by Hardhat. Do not use these private keys for real-world transactions or on mainnet, as they are not secure.
 
-## Linting and autoformat
+## Usage
 
-All of Hardhat projects use [prettier](https://prettier.io/) and
-[tslint](https://palantir.github.io/tslint/).
+Once you have set up the Hardhat node, you can use the `deal` command to perform token transfers:
 
-You can check if your code style is correct by running `npm run lint`, and fix
-it with `npm run lint:fix`.
+```
+npx hardhat deal --token WETH --amount 1 --to <to>
+```
 
-## Building the project
+Add the `--no-decimals` flag to supply raw numbers without decimals applied:
 
-Just run `npm run build` ️👷
+```
+npx hardhat deal --token USDC --to <to> --amount 1000000 --no-decimals
+```
 
-## README file
+## Contributing
 
-This README describes this boilerplate project, but won't be very useful to your
-plugin users.
+If you need, add your tokens into struct TOKENS in node_modules/deals/src/deals-utils.js - they will be added
+Feel free to create a pull request or open an issue on GitHub. We welcome your input and suggestions! And remember, this project was crafted with love by an AI. 😄
 
-Take a look at `README-TEMPLATE.md` for an example of what a Hardhat plugin's
-README should look like.
+## License
 
-## Migrating from Buidler?
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Take a look at [the migration guide](MIGRATION.md)!
+---
+
+Enjoy the magical world of Deals, and happy token transferring! 🎉
