@@ -1,5 +1,5 @@
 {
-  "name": "deals",
+  "name": "hardhat-deals",
   "version": "0.1.0",
   "description": "Provides fast way to deal tokens in forked blockchain",
   "repository": "https://github.com/Karuzzzo/deals",
@@ -11,13 +11,13 @@
     "hardhat",
     "hardhat-plugin",
     "debug",
-    "erc20", 
+    "erc20",
     "tokens"
   ],
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-   "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
+    "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "test": "mocha --exit --recursive 'test/**/*.test.ts'",
     "build": "tsc",
@@ -28,11 +28,11 @@
     "LICENSE",
     "README.md"
   ],
-  "dependencies": {
-    "ethers": "^5.5.1"
-  },
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@types/mocha": "^10.0.1",
     "@types/node": "^16.11.6",
+    "ethers": "^5.7.2",
     "hardhat": "^2.8.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"

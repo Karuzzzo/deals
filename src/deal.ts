@@ -2,13 +2,14 @@ import { TASK_DEAL } from "./task-names";
 import { task } from "hardhat/config";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Contract, Signer, ethers } from "ethers";
-import { ERC20ABI, TOKENS } from "./deals-utils";
+import { ERC20ABI, TOKENS, Token } from "./deals-utils";
+import "@nomiclabs/hardhat-ethers";
 
-task(TASK_DEAL, `Gets token from list [${TOKENS.map((t) => t.symbol).join(", ")}] and deals --amount to --address`)
+task(TASK_DEAL, `Gets token from list [${TOKENS.map((t: Token) => t.symbol).join(", ")}] and deals --amount to --address`)
   .addParam("symbol", "Token symbol", "WETH")
   .addParam("to", "Destination", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2")
   .addParam("amount", "Token amount, with decimals", "1")
-  .addOptionalParam("noDec", "Disable decimal usage and provide a huge number", false, types.boolean)
+  // .addOptionalParam("noDec", "Disable decimal usage and provide a huge number", false, types.boolean)
   .setAction(async function (
     { symbol, to, amount }: { symbol: string; to: string; amount: string },
     hre: HardhatRuntimeEnvironment
@@ -20,7 +21,14 @@ task(TASK_DEAL, `Gets token from list [${TOKENS.map((t) => t.symbol).join(", ")}
 
     // Call the getSigners function from the ethers object
     const [owner]: Signer[] = await ethers.getSigners();
-    const token = TOKENS.find((token) => token.symbol === symbol);
+    const token = TOKENS.find((token: Token) => {
+      return token.symbol === symbol;
+    }
+    );
+    if (token == undefined) {
+        console.log("Unknown token, consider adding it to TOKENS struct");
+        return;
+    }
     const token_contract = new Contract(token.address, ERC20ABI, owner);
     // Defaults to token addr itself, but can fail
     const sender_addr = token.holder ? token.holder : token.address;
