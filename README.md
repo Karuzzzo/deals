@@ -40,10 +40,18 @@ Once you have set up the Hardhat node, you can use the `deal` command to perform
 npx hardhat deal --token WETH --amount 1 --to <to>
 ```
 
-Add the `--no-decimals` flag to supply raw numbers without decimals applied:
+Add the `--nodec` flag to supply raw numbers without decimals applied:
 
 ```
-npx hardhat deal --token USDC --to <to> --amount 1000000 --no-decimals
+npx hardhat deal --token USDC --to <to> --amount 1000000 --nodec
+```
+
+Would be happy to use positional arguments in form, but can't get it running in hardhat
+Seems like they does not support it at all (
+
+```
+// DOES NOT WORK
+npx hardhat deal <to>  1000000  USDC  [--nodec]
 ```
 
 ## Contributing

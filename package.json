@@ -1,6 +1,6 @@
 {
   "name": "hardhat-deals",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Provides fast way to deal tokens in forked blockchain",
   "repository": "https://github.com/Karuzzzo/deals",
   "author": "use less",
