@@ -13,7 +13,7 @@ Welcome to Deals, a magical adventure where token transferring becomes easy and 
 
 To install Deals as an npm package, simply run:
 ```
-npm install hardhat-token-dealer
+npm install hardhat-deals
 ```
 
 ## Running a Hardhat Node
